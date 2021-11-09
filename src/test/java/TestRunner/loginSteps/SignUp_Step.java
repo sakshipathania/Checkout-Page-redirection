@@ -70,6 +70,8 @@ public class SignUp_Step extends SetupClass {
 		Join_now.click();
 		Thread.sleep(5000);
 		
+		boolean value = SetupClass.waitForElementText(By.xpath("//a[@title='create an account']"), "Create an Account");
+			 System.out.println("Create an Account is visible on page = " + value );
 		//WebElement create_account = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-account-action > div > div:nth-child(1) > div > div > div.btn-wrapper.create_accbtn > a")));
 		WebElement create_account = SetupClass.visibilityofelement(By.xpath("//a[@title='create an account']")));
 		Thread.sleep(3000);
