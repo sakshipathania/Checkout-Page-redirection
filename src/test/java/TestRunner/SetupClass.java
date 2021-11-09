@@ -82,6 +82,16 @@ public class SetupClass {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
+	public static Boolean waitForElementText(By locator, String text) {
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				// Check for condition in every 2 seconds
+				.pollingEvery(Duration.ofSeconds(2))
+				// Till time out i.e. 30 seconds
+				.withTimeout(Duration.ofSeconds(30))
+				.ignoring(NoSuchElementException.class);
+		return wait.until(ExpectedConditions.textToBe(locator, text));
+	}
+	
 
 	@AfterClass
 
