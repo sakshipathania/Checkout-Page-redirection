@@ -74,7 +74,7 @@ public class SignUp_Step extends SetupClass {
 		WebElement create_account = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@title='create an account']")));
 		Thread.sleep(3000);
 		create_account.click();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		//driver.get("https://www.slidegeeks.com/register");
 		Thread.sleep(3000);
 		/*WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
@@ -82,7 +82,7 @@ public class SignUp_Step extends SetupClass {
 		 login_signup_btn.click();
 		 Thread.sleep(3000);
 		 */
-		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_name1")));
+		WebElement name = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#jform_name1")));
 		 Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
 		 Thread.sleep(3000);
