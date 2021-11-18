@@ -45,20 +45,19 @@ public class SignUp_Step extends SetupClass {
 		
 		//User go to pricing page and click on subscription
 		driver.get("https://www.slidegeeks.com/subscriptions");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
 		Thread.sleep(3000);
 		Join_now.click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
 		boolean value = SetupClass.waitForElementText(By.xpath("//a[@title='create an account']"), "CREATE AN ACCOUNT");
 			 System.out.println("Create an Account is visible on page = " + value );
 		//WebElement create_account = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-account-action > div > div:nth-child(1) > div > div > div.btn-wrapper.create_accbtn > a")));
 		WebElement create_account = SetupClass.visibilityofelement(By.xpath("//a[@title='create an account']"));
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		create_account.click();
-		//Thread.sleep(2000);
-		//driver.get("https://www.slidegeeks.com/register");
+		
 		Thread.sleep(3000);
 		/*WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
 		 Thread.sleep(3000);
@@ -66,9 +65,8 @@ public class SignUp_Step extends SetupClass {
 		 Thread.sleep(3000);
 		 */
 		WebElement name = SetupClass.visibilityofelement(By.cssSelector("#jform_name1"));
-		 Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
-		 Thread.sleep(3000);
+		 Thread.sleep(2000);
 	   
 	
 		// Generate Random Email Address
@@ -93,32 +91,27 @@ public class SignUp_Step extends SetupClass {
 		Thread.sleep(2000);
 		
 		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_email1")));
-		 Thread.sleep(3000);
 		 new_email.sendKeys(full_email);
-		 Thread.sleep(3000);
+		 Thread.sleep(2000);
 		
 	
 		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_password1")));
-		 Thread.sleep(3000);
 		password.sendKeys("Geeks@123");
-		 Thread.sleep(3000);
+		 Thread.sleep(2000);
 		 
 		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_password2")));
-		 Thread.sleep(3000);
 		confirm_passwoed.sendKeys("Geeks@123");
-		 Thread.sleep(3000);
+		 Thread.sleep(2000);
 	    
 	
 		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		 Thread.sleep(3000);
 		captcha.sendKeys("Y3Tt6bfwI");
-		 Thread.sleep(3000);
+		 Thread.sleep(1000);
 	    
 
 		WebElement register_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".pg-register-button-new")));
-		 Thread.sleep(3000);
 		register_btn.click();
-		 Thread.sleep(5000);
+		 Thread.sleep(3000);
 		
 	}
 
@@ -126,23 +119,21 @@ public class SignUp_Step extends SetupClass {
 	public void Stripe_Checkout() throws Throwable {
 		
 		driver.get("https://www.slidegeeks.com/subscriptions");
-		Thread.sleep(4000);
-		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
 		Thread.sleep(3000);
-		Join_now.click();
+		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
+		 Join_now.click();
 		Thread.sleep(5000);
 		//String URL = driver.getCurrentUrl();
                // Assert.assertEquals(URL, "https://www.slidegeeks.com/component/pago/checkout");
 		//System.out.println("URL matching --> Part executed");
 		//Thread.sleep(5000);
 		 try {
-		Thread.sleep(1400);
-		// select stripe option
-             WebElement cp_btn  = driver.findElement(By.xpath(" /html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]"));
-		//WebElement co_btn  =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-checkout-billing-payment-form > div > div:nth-child(1) > label")));
 		Thread.sleep(2000);
+		// select stripe option
+             WebElement cp_btn  = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]"));
+		//WebElement co_btn  =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-checkout-billing-payment-form > div > div:nth-child(1) > label")));
 	        cp_btn.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	     } catch( NoSuchElementException popup) { 
 	     }
 		
@@ -153,9 +144,9 @@ public class SignUp_Step extends SetupClass {
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);	
 			//js.executeScript("arguments[0].click();", place_order_btn);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		    place_order_btn.click();
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (NoSuchElementException popup) {
 		}
 		
@@ -180,9 +171,8 @@ public class SignUp_Step extends SetupClass {
 	    	log.info("USER IS ON THE WRONG PAGE");
 	    }	
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		 WebElement Stripe_email = driver.findElement(By.cssSelector("#email"));
-		Thread.sleep(2000);
 		 Stripe_email.sendKeys("slidetech.qa@gmail.com");
 		Thread.sleep(2000);
 		 WebElement Stripe_back = driver.findElement(By.cssSelector("#root > div > div > div.App-Overview > header > div > div > a > div > div > div.Header-backArrowContainer > svg"));
