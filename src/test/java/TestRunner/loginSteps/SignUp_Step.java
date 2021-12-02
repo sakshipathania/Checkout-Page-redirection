@@ -24,7 +24,8 @@ public class SignUp_Step extends SetupClass {
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
 		driver.get("https://www.slidegeeks.com/");
-		Thread.sleep(1000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");	
 		
@@ -118,11 +119,11 @@ public class SignUp_Step extends SetupClass {
 	@Then("^Stripe Checkout$")
 	public void Stripe_Checkout() throws Throwable {
 		
-		driver.get("https://www.slidegeeks.com/subscriptions");
-		Thread.sleep(3000);
-		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
-		 Join_now.click();
-		Thread.sleep(5000);
+		//driver.get("https://www.slidegeeks.com/subscriptions");
+		//Thread.sleep(3000);
+		// WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
+		// Join_now.click();
+		//Thread.sleep(5000);
 		//String URL = driver.getCurrentUrl();
                // Assert.assertEquals(URL, "https://www.slidegeeks.com/component/pago/checkout");
 		//System.out.println("URL matching --> Part executed");
