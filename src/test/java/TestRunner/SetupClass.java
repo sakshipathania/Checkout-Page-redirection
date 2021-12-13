@@ -65,6 +65,7 @@ public class SetupClass {
 			FirefoxProfile profile = new FirefoxProfile();
 			profile.setPreference("dom.webnotifications.enabled", false);
 		   driver = new FirefoxDriver();
+			driver.manage().window().maximize();
 		   Thread.sleep(1000);
 
 		}
