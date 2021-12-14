@@ -26,11 +26,13 @@ public class SignUp_Step extends SetupClass {
 		driver.get("https://www.slidegeeks.com/");
 		driver.manage().deleteAllCookies();
 		Thread.sleep(4000);
+		driver.navigate().refresh();
+		Thread.sleep(2000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");	
 		
 		Thread.sleep(1000);
-		try {
+		/*try {
 			WebElement logout = driver.findElement(By.xpath("//a[@href ='/logout']"));
 			if (logout.isEnabled()) {
 				logout.click();
@@ -40,7 +42,7 @@ public class SignUp_Step extends SetupClass {
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}
+		}*/
 	    
 		Thread.sleep(3000);
 		
