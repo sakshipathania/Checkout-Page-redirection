@@ -49,7 +49,7 @@ public class SignUp_Step extends SetupClass {
 		//User go to pricing page and click on subscription
 		driver.get("https://www.slidegeeks.com/subscriptions");
 		Thread.sleep(2000);
-		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#Monthly")));
+		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='Individual']//form[@name='hikashop_product_form_205548_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]")));
 		Thread.sleep(3000);
 		Join_now.click();
 		Thread.sleep(3000);
@@ -67,7 +67,7 @@ public class SignUp_Step extends SetupClass {
 		 login_signup_btn.click();
 		 Thread.sleep(3000);
 		 */
-		WebElement name = SetupClass.visibilityofelement(By.cssSelector("#jform_name1"));
+		WebElement name = SetupClass.visibilityofelement(By.xpath("//input[@id='register_name']"));
 		 name.sendKeys("Automated Program");
 		 Thread.sleep(2000);
 	   
@@ -93,16 +93,16 @@ public class SignUp_Step extends SetupClass {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 		Thread.sleep(2000);
 		
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_email1")));
+		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_email']")));
 		 new_email.sendKeys(full_email);
 		 Thread.sleep(2000);
 		
 	
-		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_password1")));
+		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_password']")));
 		password.sendKeys("Geeks@123");
 		 Thread.sleep(2000);
 		 
-		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_password2")));
+		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_password2']")));
 		confirm_passwoed.sendKeys("Geeks@123");
 		 Thread.sleep(2000);
 	    
