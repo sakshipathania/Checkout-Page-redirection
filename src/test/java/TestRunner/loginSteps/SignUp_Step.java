@@ -24,98 +24,76 @@ public class SignUp_Step extends SetupClass {
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
 		driver.get("https://www.slidegeeks.com/");
+		Thread.sleep(3000);
 		driver.manage().deleteAllCookies();
 		Thread.sleep(4000);
 		driver.navigate().refresh();
 		Thread.sleep(2000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");	
-		
-		Thread.sleep(1000);
-		/*try {
-			WebElement logout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-			if (logout.isEnabled()) {
-				logout.click();
-				Thread.sleep(1000);
-				driver.navigate().refresh();
-				Thread.sleep(1000);
-			}
-		} catch (NoSuchElementException Ext) {
 
-		}*/
-	    
 		Thread.sleep(3000);
-		
-		//User go to pricing page and click on subscription
-		driver.get("https://www.slidegeeks.com/subscriptions");
+
+		WebElement pricing = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Pricing']")));
+		pricing.click();
 		Thread.sleep(2000);
-		 WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='Individual']//form[@name='hikashop_product_form_205548_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]")));
-		Thread.sleep(3000);
+		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+				"div[id='Individual'] form[name='hikashop_product_form_205548_hikashop_category_information_menu_117']")));
+
 		Join_now.click();
+		Thread.sleep(2000);
+
+		WebElement name = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='site_signup_name']")));
 		Thread.sleep(3000);
-		
-		boolean value = SetupClass.waitForElementText(By.xpath("//a[@title='create an account']"), "CREATE AN ACCOUNT");
-			 System.out.println("Create an Account is visible on page = " + value );
-		//WebElement create_account = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-account-action > div > div:nth-child(1) > div > div > div.btn-wrapper.create_accbtn > a")));
-		WebElement create_account = SetupClass.visibilityofelement(By.xpath("//a[@title='create an account']"));
-		Thread.sleep(1000);
-		create_account.click();
-		
+		name.sendKeys("Automated Program");
 		Thread.sleep(3000);
-		/*WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
-		 Thread.sleep(3000);
-		 login_signup_btn.click();
-		 Thread.sleep(3000);
-		 */
-		WebElement name = SetupClass.visibilityofelement(By.xpath("//input[@id='register_name']"));
-		 name.sendKeys("Automated Program");
-		 Thread.sleep(2000);
-	   
-	
+
 		// Generate Random Email Address
 		int leftLimit = 97; // letter 'a'
-	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 10;
-	    Random random = new Random();
-	    StringBuilder buffer = new StringBuilder(targetStringLength);
-	    for (int i = 0; i < targetStringLength; i++) {
-	        int randomLimitedInt = leftLimit + (int) 
-	          (random.nextFloat() * (rightLimit - leftLimit + 1));
-	        buffer.append((char) randomLimitedInt);
-	    }
-	    String generatedString = buffer.toString();
-	 
-	    System.out.println(generatedString);
-	    
-	    String signup_email=generatedString;
-	    String full_email="selenium.testing."+generatedString+"@gmail.com";
-	    System.out.println(full_email);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-		Thread.sleep(2000);
-		
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_email']")));
-		 new_email.sendKeys(full_email);
-		 Thread.sleep(2000);
-		
-	
-		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_password']")));
-		password.sendKeys("Geeks@123");
-		 Thread.sleep(2000);
-		 
-		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='register_password2']")));
-		confirm_passwoed.sendKeys("Geeks@123");
-		 Thread.sleep(2000);
-	    
-	
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		captcha.sendKeys("Y3Tt6bfwI");
-		 Thread.sleep(1000);
-	    
+		int rightLimit = 122; // letter 'z'
+		int targetStringLength = 10;
+		Random random = new Random();
+		StringBuilder buffer = new StringBuilder(targetStringLength);
+		for (int i = 0; i < targetStringLength; i++) {
+			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+			buffer.append((char) randomLimitedInt);
+		}
+		String generatedString = buffer.toString();
 
-		WebElement register_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".pg-register-button-new")));
+		System.out.println(generatedString);
+
+		String signup_email = generatedString;
+		String full_email = "selenium.testing." + generatedString + "@gmail.com";
+		System.out.println(full_email);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+
+		WebElement new_email = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='site_signup_email']")));
+
+		new_email.sendKeys(full_email);
+		Thread.sleep(3000);
+
+		WebElement password = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='site_signup_password']")));
+
+		password.sendKeys("Geeks@123");
+
+		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='captchtext']")));
+
+		captcha.sendKeys("Y3Tt6bfwI");
+
+		WebElement selectRadioBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='site_signup_checkbox']")));
+
+		selectRadioBtn.click();
+
+		WebElement register_btn = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='site_signup_btn']")));
+		Thread.sleep(3000);
 		register_btn.click();
-		 Thread.sleep(3000);
-		
+		Thread.sleep(5000);
 	}
 
 	@Then("^Stripe Checkout$")
