@@ -167,7 +167,7 @@ public class SignUp_Step extends SetupClass {
          WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href ='/logout']")));
 		Thread.sleep(3000);
 		Signout.click();							    
-									    
+		Thread.sleep(4000);						    
 	}
 
 }
