@@ -37,7 +37,7 @@ public class SignUp_Step extends SetupClass {
 		WebElement pricing = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Pricing']")));
 		pricing.click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
 				"div[id='Individual'] form[name='hikashop_product_form_205548_hikashop_category_information_menu_117']")));
 
