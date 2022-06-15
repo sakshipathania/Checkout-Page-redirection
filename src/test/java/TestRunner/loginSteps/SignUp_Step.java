@@ -24,12 +24,13 @@ public class SignUp_Step extends SetupClass {
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
 		driver.get("https://www.slidegeeks.com/");
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		driver.manage().deleteAllCookies();
 		Thread.sleep(4000);
 		driver.navigate().refresh();
-		Thread.sleep(2000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		Thread.sleep(4000);
+		
 
 		Thread.sleep(3000);
 
@@ -41,7 +42,7 @@ public class SignUp_Step extends SetupClass {
 				"div[id='Individual'] form[name='hikashop_product_form_205548_hikashop_category_information_menu_117']")));
 
 		Join_now.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 		WebElement signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='signupclass']")));
 
