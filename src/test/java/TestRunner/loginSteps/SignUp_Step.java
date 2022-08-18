@@ -194,18 +194,8 @@ public class SignUp_Step extends SetupClass {
 		WebElement Stripe_back = driver.findElement(By.cssSelector(
 				"#root > div > div > div.App-Overview > header > div > div > a > div > div > div.Header-backArrowContainer > svg"));
 		Thread.sleep(2000);
-		try {
-			Stripe_back.click();
-		} catch (UnhandledAlertException f) {
-			try {
-				Alert alert = driver.switchTo().alert();
-				String alertText = alert.getText();
-				System.out.println("Alert data: " + alertText);
-				alert.accept();
-			} catch (NoAlertPresentException e) {
-				e.printStackTrace();
-			}
-		}
+
+		Stripe_back.click();
 
 		Thread.sleep(4000);
 		// driver.get("https://www.slidegeeks.com/component/pago/checkout");
