@@ -132,7 +132,7 @@ public class SetupClass {
 	public static void after_Class() {
 
 		try {
-			driver.quit();
+		///	driver.quit();
 			Thread.sleep(2000);
 		} catch (Exception closeBrowser) {
 
