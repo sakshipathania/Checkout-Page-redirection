@@ -109,8 +109,6 @@ public class SetupClass {
 
 	}
 
-	
-
 	public static WebElement visibilityofelement(By locator) {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				// Check for condition in every 2 seconds
@@ -132,10 +130,13 @@ public class SetupClass {
 	@AfterClass
 
 	public static void after_Class() {
-		/*
-		 * try { driver.quit(); Thread.sleep(2000); } catch (Exception closeBrowser) {
-		 * 
-		 * }
-		 */
+
+		try {
+			driver.quit();
+			Thread.sleep(2000);
+		} catch (Exception closeBrowser) {
+
+		}
+
 	}
 }
