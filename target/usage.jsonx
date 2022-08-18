@@ -1,0 +1,56 @@
+[
+  {
+    "source": "^user is already on Website Home Page ii$",
+    "steps": [
+      {
+        "name": "user is already on Website Home Page ii",
+        "aggregatedDurations": {
+          "median": 88.0006331,
+          "average": 88.0006331
+        },
+        "durations": [
+          {
+            "duration": 88.0006331,
+            "location": "file:///D:/Selenium%20Live%20Projects/Checkout-Page-redirection/./src/test/resources/SignUp_Step.feature:5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^Stripe Checkout$",
+    "steps": [
+      {
+        "name": "Stripe Checkout",
+        "aggregatedDurations": {
+          "median": 24.0659285,
+          "average": 24.0659285
+        },
+        "durations": [
+          {
+            "duration": 24.0659285,
+            "location": "file:///D:/Selenium%20Live%20Projects/Checkout-Page-redirection/./src/test/resources/SignUp_Step.feature:6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^Stripe Checkout Redirection$",
+    "steps": [
+      {
+        "name": "Stripe Checkout Redirection",
+        "aggregatedDurations": {
+          "median": 79.1923603,
+          "average": 79.1923603
+        },
+        "durations": [
+          {
+            "duration": 79.1923603,
+            "location": "file:///D:/Selenium%20Live%20Projects/Checkout-Page-redirection/./src/test/resources/SignUp_Step.feature:7"
+          }
+        ]
+      }
+    ]
+  }
+]
