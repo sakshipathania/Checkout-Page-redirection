@@ -1,0 +1,20 @@
+[
+  {
+    "source": "^user is already on Website Home Page ii$",
+    "steps": [
+      {
+        "name": "user is already on Website Home Page ii",
+        "aggregatedDurations": {
+          "median": 129.586635,
+          "average": 129.586635
+        },
+        "durations": [
+          {
+            "duration": 129.586635,
+            "location": "file:///D:/Selenium%20Live%20Projects/Checkout-Page-redirection/./src/test/resources/SignUp_Step.feature:5"
+          }
+        ]
+      }
+    ]
+  }
+]
