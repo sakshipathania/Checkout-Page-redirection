@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="191.525">
-    <testcase classname="Sign up with correct data" name="Test Sign up with correct Data" time="191.345">
-        <system-out><![CDATA[Given user is already on Website Home Page ii...............................passed
-Then Stripe Checkout........................................................passed
-Then Stripe Checkout Redirection............................................passed
-]]></system-out>
-    </testcase>
-</testsuite>
