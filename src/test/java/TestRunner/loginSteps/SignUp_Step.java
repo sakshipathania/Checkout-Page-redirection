@@ -48,7 +48,9 @@ public class SignUp_Step extends SetupClass {
 		WebElement signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='signupclass']")));
 
 		signup.click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		driver.get("https://www.slidegeeks.com/register?163=908");
+		Thread.sleep(3000);
 
 		/*
 		 * WebElement name = wait
