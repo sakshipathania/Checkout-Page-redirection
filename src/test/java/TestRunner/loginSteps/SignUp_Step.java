@@ -133,10 +133,12 @@ public class SignUp_Step extends SetupClass {
 		confirm_passwoed.sendKeys("Geeks@123");
 		Thread.sleep(3000);
 
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		Thread.sleep(3000);
-		captcha.sendKeys("Y3Tt6bfwI");
-		Thread.sleep(3000);
+		/*
+		 * WebElement captcha =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+		 * "#captchtext"))); Thread.sleep(3000); captcha.sendKeys("Y3Tt6bfwI");
+		 * Thread.sleep(3000);
+		 */
 
 		WebElement register_btn = wait
 				.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".pg-register-button-new")));
