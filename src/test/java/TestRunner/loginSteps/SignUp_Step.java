@@ -49,7 +49,7 @@ public class SignUp_Step extends SetupClass {
 
 		signup.click();
 		Thread.sleep(3000);
-		driver.get("https://www.slidegeeks.com/register?163=908");
+		driver.get("https://www.slidegeeks.com/register&163=abc");
 		Thread.sleep(3000);
 
 		/*
