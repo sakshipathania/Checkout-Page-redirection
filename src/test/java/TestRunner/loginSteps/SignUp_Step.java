@@ -173,15 +173,15 @@ public class SignUp_Step extends SetupClass {
 	@Then("^Stripe Checkout Redirection$")
 	public void Stripe_Checkout_Redirection() throws Throwable {
 
+		WebElement Stripe_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
+		Stripe_email.sendKeys("slidetech.qa@gmail.com");
+
 		String stripe_page_title = driver.getTitle();
 		System.out.println("Title of the Page is --> " + stripe_page_title);
 
 		String page_title = "SlideTeam Geeks Inc";
 
 		Assert.assertEquals("Title does not match", stripe_page_title, page_title);
-
-		WebElement Stripe_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
-		Stripe_email.sendKeys("slidetech.qa@gmail.com");
 		Thread.sleep(2000);
 		WebElement Stripe_back = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
 				"#root > div > div > div.App-Overview > header > div > div > a > div > div > div.Header-backArrowContainer > svg")));
