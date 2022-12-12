@@ -4,12 +4,11 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.UnhandledAlertException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,21 +25,17 @@ public class SignUp_Step extends SetupClass {
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
 		driver.get("https://www.slidegeeks.com/");
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		Thread.sleep(3000);
 		driver.manage().deleteAllCookies();
 		Thread.sleep(4000);
 		driver.navigate().refresh();
 		Thread.sleep(4000);
 
-		Thread.sleep(3000);
-
 		WebElement pricing = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Pricing']")));
 		pricing.click();
 		Thread.sleep(5000);
-		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
-				"div[id='Individual'] form[name='hikashop_product_form_205548_hikashop_category_information_menu_117']")));
+		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//div[@id = 'Individual']/div[1]/div[2]/div[3]/span[1]/form[1]/a[1]/span[1]")));
 
 		Join_now.click();
 		Thread.sleep(5000);
@@ -163,13 +158,13 @@ public class SignUp_Step extends SetupClass {
 		try {
 
 			WebElement place_order_btn = wait
-					.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#hikabtn_checkout_next")));
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='hikabtn_checkout_next']")));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();", place_order_btn);
-			// js.executeScript("arguments[0].click();", place_order_btn);
+
 			Thread.sleep(1000);
 			place_order_btn.click();
-			Thread.sleep(7000);
+			Thread.sleep(4000);
 		} catch (NoSuchElementException popup) {
 		}
 
@@ -177,18 +172,13 @@ public class SignUp_Step extends SetupClass {
 
 	@Then("^Stripe Checkout Redirection$")
 	public void Stripe_Checkout_Redirection() throws Throwable {
+
 		String stripe_page_title = driver.getTitle();
 		System.out.println("Title of the Page is --> " + stripe_page_title);
 
-		String page_title = "https://checkout.stripe.com/";
+		String page_title = "SlideTeam Geeks Inc";
 
-		if (page_title.equalsIgnoreCase(stripe_page_title)) {
-			System.out.println(" user is on the Stripe page");
-			log.info("USER IS ON THE STRIPE PAGE");
-		} else {
-			System.out.println("user is on the wrong page");
-			log.info("USER IS ON THE WRONG PAGE");
-		}
+		Assert.assertEquals("price does not match", stripe_page_title, page_title);
 
 		WebElement Stripe_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
 		Stripe_email.sendKeys("slidetech.qa@gmail.com");
@@ -198,19 +188,13 @@ public class SignUp_Step extends SetupClass {
 		Thread.sleep(2000);
 
 		Stripe_back.click();
-
-		if (wait.until(ExpectedConditions.alertIsPresent()) != null) {
-			Alert alert = driver.switchTo().alert();
-			System.out.println(alert.getText());
-			alert.accept();
-		} else {
-			System.out.println("Alert exists");
-		}
+		/*
+		 * if (wait.until(ExpectedConditions.alertIsPresent()) != null) { Alert alert =
+		 * driver.switchTo().alert(); System.out.println(alert.getText());
+		 * alert.accept(); } else { System.out.println("Alert exists"); }
+		 */
 
 		Thread.sleep(4000);
-		// driver.get("https://www.slidegeeks.com/component/pago/checkout");
-		// Thread.sleep(2000);
-
 		WebElement Account = driver.findElement(By.xpath("//a[normalize-space()='Account']"));
 		Thread.sleep(3000);
 		Account.click();
