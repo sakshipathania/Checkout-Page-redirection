@@ -178,7 +178,7 @@ public class SignUp_Step extends SetupClass {
 
 		String page_title = "SlideTeam Geeks Inc";
 
-		Assert.assertEquals("price does not match", stripe_page_title, page_title);
+		Assert.assertEquals("Title does not match", stripe_page_title, page_title);
 
 		WebElement Stripe_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
 		Stripe_email.sendKeys("slidetech.qa@gmail.com");
