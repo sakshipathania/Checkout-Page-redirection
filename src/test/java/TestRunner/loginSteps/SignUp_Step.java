@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
@@ -33,12 +34,12 @@ public class SignUp_Step extends SetupClass {
 		WebElement pricing = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Pricing']")));
 		pricing.click();
-		Thread.sleep(5000);
-		WebElement Join_now = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath("//div[1]/div[1]/div[2]/div[3]/span[1]/form[1]/a[1]")));
+		Thread.sleep(3000);
+		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//div[@id='Individual']//form[@name='hikashop_product_form_389631_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]")));
 
-		js.executeScript("arguments[0].scrollIntoView(true);", Join_now);
-		Join_now.click();
+		js.executeScript("arguments[0].click();", Join_now);
+		// Join_now.click();
 		Thread.sleep(5000);
 
 		WebElement signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='signupclass']")));
@@ -189,11 +190,14 @@ public class SignUp_Step extends SetupClass {
 		Thread.sleep(2000);
 
 		Stripe_back.click();
-		/*
-		 * if (wait.until(ExpectedConditions.alertIsPresent()) != null) { Alert alert =
-		 * driver.switchTo().alert(); System.out.println(alert.getText());
-		 * alert.accept(); } else { System.out.println("Alert exists"); }
-		 */
+
+		if (wait.until(ExpectedConditions.alertIsPresent()) != null) {
+			Alert alert = driver.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();
+		} else {
+			System.out.println("Alert not exists");
+		}
 
 		Thread.sleep(4000);
 		WebElement Account = driver.findElement(By.xpath("//a[normalize-space()='Account']"));
