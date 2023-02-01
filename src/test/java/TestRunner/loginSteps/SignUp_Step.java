@@ -36,7 +36,7 @@ public class SignUp_Step extends SetupClass {
 		pricing.click();
 		Thread.sleep(3000);
 		WebElement Join_now = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//div[@id='Individual']//form[@name='hikashop_product_form_389631_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]")));
+				"//div[@id='Individual']//form[@name='hikashop_product_form_205548_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]")));
 
 		js.executeScript("arguments[0].click();", Join_now);
 		// Join_now.click();
@@ -149,8 +149,8 @@ public class SignUp_Step extends SetupClass {
 		try {
 			Thread.sleep(2000);
 			// select stripe option
-			WebElement cp_btn = driver.findElement(By.xpath(
-					"/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]"));
+			WebElement cp_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+					"//div[@class = 'form-group col-md-12 col-sm-12']//label[@for ='payment_radio_1_2__stripe_2']")));
 			cp_btn.click();
 			Thread.sleep(2000);
 		} catch (NoSuchElementException popup) {
@@ -214,14 +214,13 @@ public class SignUp_Step extends SetupClass {
 		Thread.sleep(3000);
 		Delete_Account_reason.click();
 		Thread.sleep(3000);
-		WebElement Delete_Profile = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div/div[3]/button[1]"));
+		WebElement Delete_Profile = driver.findElement(By.xpath("//button[@id = 'delete_profile']"));
 		Thread.sleep(3000);
 		Delete_Profile.click();
 		Thread.sleep(3000);
-		WebElement No_Delete = driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div[3]/button[2]"));
+		WebElement No_Delete = driver.findElement(By.xpath("//button[@class = 'btn btn-default button_2']"));
 		Thread.sleep(3000);
 		No_Delete.click();
-		Thread.sleep(7000);
 		Thread.sleep(7000);
 
 		String verifyDeleteAccountMessage = wait.until(
