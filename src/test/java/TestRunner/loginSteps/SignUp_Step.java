@@ -46,7 +46,7 @@ public class SignUp_Step extends SetupClass {
 
 		signup.click();
 		Thread.sleep(3000);
-		driver.get("https://www.slidegeeks.com/register?checkout=1&45.555");
+		driver.get("https://www.slidegeeks.com/register?checkout=1&490.00");
 		Thread.sleep(3000);
 
 		/*
