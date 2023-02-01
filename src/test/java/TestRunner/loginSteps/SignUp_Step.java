@@ -226,6 +226,7 @@ public class SignUp_Step extends SetupClass {
 		String verifyDeleteAccountMessage = wait.until(
 				ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='alert-message login-sucesmsg']")))
 				.getText();
+
 		System.out.println("verifyText1 = " + verifyDeleteAccountMessage);
 		Assert.assertTrue("Your are not on paypal page",
 				verifyDeleteAccountMessage.contentEquals("Your Account has been deleted successfully."));
