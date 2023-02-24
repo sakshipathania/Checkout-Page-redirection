@@ -148,6 +148,13 @@ public class SignUp_Step extends SetupClass {
 	public void Stripe_Checkout() throws Throwable {
 		try {
 			Thread.sleep(2000);
+			// verify that user should be on checckout page
+
+			String expected_URL = "https://www.slideteam.net/checkout/";
+			String actual_URL = driver.getCurrentUrl();
+			Assert.assertEquals("user was not on the checkout page", expected_URL, actual_URL);
+			Thread.sleep(2000);
+
 			// select stripe option
 			WebElement cp_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 					"//div[@class = 'form-group col-md-12 col-sm-12']//label[@for ='payment_radio_1_2__stripe_2']")));
