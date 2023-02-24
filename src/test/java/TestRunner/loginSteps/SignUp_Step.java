@@ -238,6 +238,7 @@ public class SignUp_Step extends SetupClass {
 		Assert.assertTrue("Your are not on paypal page",
 				verifyDeleteAccountMessage.contentEquals("Your Account has been deleted successfully."));
 		Thread.sleep(3000);
+		
 	}
 
 }
