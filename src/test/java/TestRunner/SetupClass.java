@@ -1,10 +1,6 @@
 package TestRunner;
 
-import java.time.Duration;
 import java.io.FileReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
@@ -13,7 +9,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,15 +16,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
+
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import webApp.CommonData;
 
 public class SetupClass {
 	public static WebDriver driver;
@@ -44,7 +38,7 @@ public class SetupClass {
 	public Actions ac = new Actions(driver);
 	public static WebDriverWait wait;
 	public static JavascriptExecutor js;
-	
+
 	public static final String UserName = "rahulsharma_8RUv0Y";
 
 	public static final String Automate_Key = "zg8foQC6mjQGoHx9CQJE";
@@ -111,38 +105,6 @@ public class SetupClass {
 			js = (JavascriptExecutor) driver;
 			Thread.sleep(1000);
 		}
-		else if ((property.getProperty("browser").equals("safari"))) {
-
-			// DesiredCapabilities caps = new DesiredCapabilities();
-
-			/*
-			 * caps.setCapability("browser", browser); caps.setCapability("browser_version",
-			 * "104"); caps.setCapability("os", "windows"); caps.setCapability("os_version",
-			 * "10"); caps.setCapability("resolution", "1920x1200");
-			 */
-
-			MutableCapabilities capabilities = new MutableCapabilities();
-			capabilities.setCapability("browserName", "Safari");
-			capabilities.setCapability("browserVersion", "15.0");
-			HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-			browserstackOptions.put("os", "OS X");
-			browserstackOptions.put("osVersion", "Monterey");
-			//browserstackOptions.put("resolution", "1920x1080");
-			browserstackOptions.put("local", "false");
-			browserstackOptions.put("seleniumVersion", "3.141.59");
-			capabilities.setCapability("bstack:options", browserstackOptions);
-
-			try {
-				driver = new RemoteWebDriver(new URL(URL), capabilities);
-				wait = new WebDriverWait(driver, 30);
-				js = (JavascriptExecutor) driver;
-				driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-				driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 
 		else {
 
@@ -154,18 +116,18 @@ public class SetupClass {
 	public static WebElement visibilityofelement(By locator) {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				// Check for condition in every 2 seconds
-				.pollingEvery(Duration.ofSeconds(2))
+				.pollingEvery(2, TimeUnit.SECONDS)
 				// Till time out i.e. 30 seconds
-				.withTimeout(Duration.ofSeconds(30)).ignoring(NoSuchElementException.class);
+				.withTimeout(30, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	public static Boolean waitForElementText(By locator, String text) {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				// Check for condition in every 2 seconds
-				.pollingEvery(Duration.ofSeconds(2))
+				.pollingEvery(2, TimeUnit.SECONDS)
 				// Till time out i.e. 30 seconds
-				.withTimeout(Duration.ofSeconds(30)).ignoring(NoSuchElementException.class);
+				.withTimeout(30, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 		return wait.until(ExpectedConditions.textToBe(locator, text));
 	}
 
